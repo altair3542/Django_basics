@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Vehículos</title>
+</head>
+<body>
+    <h1>Lista de Vehículos</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Tipo</th>
+                <th>Año</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for vehiculo in page_obj %}
+                <tr>
+                    <td>{{ vehiculo.nombre }}</td>
+                    <td>{{ vehiculo.tipo }}</td>
+                    <td>{{ vehiculo.año }}</td>
+                    <td>
+                        <a href="{% url 'detalle_vehiculo' vehiculo.id %}">Ver</a> |
+                        <a href="{% url 'editar_vehiculo' vehiculo.id %}">Editar</a> |
+                        <a href="{% url 'eliminar_vehiculo' vehiculo.id %}">Eliminar</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <div>
+        {% if page_obj.has_previous %}
+            <a href="?page={{ page_obj.previous_page_number }}">Anterior</a>
+        {% endif %}
+        Página {{ page_obj.number }} de {{ page_obj.paginator.num_pages }}
+        {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}">Siguiente</a>
+        {% endif %}
+    </div>
+
+    <a href="{% url 'crear_vehiculo' %}">Añadir Vehículo</a>
+</body>
+</html>
+

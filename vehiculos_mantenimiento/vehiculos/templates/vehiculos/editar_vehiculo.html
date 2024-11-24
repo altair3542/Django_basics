@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Vehículo</title>
+</head>
+<body>
+    <h1>Editar Vehículo: {{ vehiculo.nombre }}</h1>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Guardar Cambios</button>
+    </form>
+    <a href="{% url 'lista_vehiculos' %}">Volver a la lista</a>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Detalle del Mantenimiento</title>
+</head>
+<body>
+    <h1>Detalle del Mantenimiento</h1>
+    <p><strong>Vehículo:</strong> {{ mantenimiento.vehiculo.nombre }}</p>
+    <p><strong>Fecha:</strong> {{ mantenimiento.fecha }}</p>
+    <p><strong>Observaciones:</strong> {{ mantenimiento.observaciones }}</p>
+    <p><strong>Foto de Evidencia:</strong>
+        {% if mantenimiento.evidencia_fotografica %}
+            <img src="{{ mantenimiento.evidencia_fotografica.url }}" alt="Evidencia" width="300">
+        {% else %}
+            No disponible
+        {% endif %}
+    </p>
+    <p><strong>Factura:</strong>
+        {% if mantenimiento.factura %}
+            <a href="{{ mantenimiento.factura.url }}">Ver Factura</a>
+        {% else %}
+            No disponible
+        {% endif %}
+    </p>
+    <a href="{% url 'lista_mantenimientos' %}">Volver a la lista</a>
+</body>
+</html>

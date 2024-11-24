@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Detalle del Vehículo</title>
+</head>
+<body>
+    <h1>Detalle del Vehículo</h1>
+    <p><strong>Nombre:</strong> {{ vehiculo.nombre }}</p>
+    <p><strong>Tipo:</strong> {{ vehiculo.tipo }}</p>
+    <p><strong>Año:</strong> {{ vehiculo.año }}</p>
+    <a href="{% url 'lista_vehiculos' %}">Volver a la lista</a>
+</body>
+</html>

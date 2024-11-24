@@ -1,5 +1,5 @@
 from django import forms
-from .models import Mantenimiento #lo van a llamar como llamaron a su modelo
+from .models import Mantenimiento, Vehiculo #lo van a llamar como llamaron a su modelo
 from datetime import date
 
 #Definimos la clase formulario.
@@ -21,3 +21,8 @@ class MantenimientoForm(forms.ModelForm):
         if len(observaciones) < 10:
             raise forms.ValidationError('Las observaciones deben tener al menos 10 caracteres.')
         return observaciones
+
+class VehiculoForm(forms.ModelForm):
+    class Meta:
+        model = Vehiculo
+        fields = ['nombre', 'tipo', 'año']
