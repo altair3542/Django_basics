@@ -1,0 +1,4 @@
+
+*.pyc
+*.pyc
+/vehiculos_mantenimiento/vehiculos/__pycache__
