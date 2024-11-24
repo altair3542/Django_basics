@@ -19,5 +19,5 @@ class MantenimientoForm(forms.ModelForm):
     def clean_observaciones(self):
         observaciones = self.cleaned_data.get('observaciones')
         if len(observaciones) < 10:
-            raise forms.ValidationError('mani, las observaciones deben tener al menos 10 caracteres. ojo.')
+            raise forms.ValidationError('Las observaciones deben tener al menos 10 caracteres.')
         return observaciones

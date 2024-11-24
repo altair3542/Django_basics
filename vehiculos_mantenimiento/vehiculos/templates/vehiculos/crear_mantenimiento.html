@@ -1,17 +1,16 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Crear Mantenimiento</title>
+    <meta charset="UTF-8">
+    <title>Crear Mantenimiento</title>
 </head>
 <body>
-  <h1>Crear Mantenimiento</h1>
-  <form method="POST" enctype="multipart/form-data">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Guardar Mantenimiento</button>
-  </form>
-  <a href="{% url 'lista_mantenimientos' %}">Volver a la lista de mantenimientos</a>
+    <h1>Crear Mantenimiento</h1>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Guardar</button>
+    </form>
+    <a href="{% url 'lista_mantenimientos' %}">Volver a la lista</a>
 </body>
 </html>
