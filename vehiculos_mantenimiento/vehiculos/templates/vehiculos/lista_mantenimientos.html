@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lista de mantenimientos</title>
+  <style>
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    table, th, td {
+      border: 1px solid black
+    }
+
+    th, td {
+      padding: 8px;
+      text-align: left;
+    }
+
+    th{
+      background-color: #f2f2f2
+    }
+  </style>
+</head>
+<body>
+  <h1>Lista de Mantenimientos</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Vehiculo</th>
+        <th>Fecha</th>
+        <th>Observaciones</th>
+        <th>Foto</th>
+        <th>Factura</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for mantenimiento in mantenimientos %}
+        <tr>
+          <td>{{ mantenimiento.vehiculo.nombre}}</td>
+          <td>{{ mantenimiento.fecha}}</td>
+          <td>{{ mantenimiento.observaciones}}</td>
+          <td>
+            {% if mantenimiento.evidencia_fotografica %}
+              <img src="{{mantenimiento.evidencia_fotografica.url }}" alt="evidencia" width="100">
+            {% else %}
+              no disponible
+            {% endif %}
+          </td>
+          <td>
+            {% if mantenimiento.factura %}
+              <a href="{{ mantenimiento.factura.url }}"target="_blank">Ver factura</a>
+            {% else %}
+              No disponible
+            {% endif %}
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <a href="{% url 'crear_mantenimiento' %}">Añadir Mantenimiento</a>
+</body>
+</html>
