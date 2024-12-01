@@ -25,4 +25,4 @@ class MantenimientoForm(forms.ModelForm):
 class VehiculoForm(forms.ModelForm):
     class Meta:
         model = Vehiculo
-        fields = ['nombre', 'tipo', 'año']
+        fields = ['nombre', 'tipo']

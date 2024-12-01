@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Mantenimientos Recientes</title>
+</head>
+<body>
+    <h1>Mantenimientos en los Últimos 6 Meses</h1>
+    <ul>
+        {% for mantenimiento in mantenimientos %}
+            <li>
+                <strong>{{ mantenimiento.vehiculo.nombre }}</strong>: {{ mantenimiento.fecha }} - {{ mantenimiento.observaciones }}
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

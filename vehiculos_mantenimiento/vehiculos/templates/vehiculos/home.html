@@ -1,0 +1,16 @@
+{% extends 'vehiculos/base.html' %}
+
+{% block title %}Inicio{% endblock %}
+
+{% block content %}
+<h1>Bienvenido a Vehículos Mantenimiento</h1>
+<p>Desde aquí puedes gestionar tus vehículos y sus mantenimientos.</p>
+<div class="d-flex gap-3">
+    <a href="{% url 'crear_vehiculo' %}" class="btn btn-primary">Crear Vehículo</a>
+    <a href="{% url 'crear_mantenimiento' %}" class="btn btn-secondary">Crear Mantenimiento</a>
+    <a href="{% url 'lista_mantenimientos' %}" class="btn btn-info">Listar Mantenimientos</a> <!-- Botón nuevo -->
+</div>
+
+
+
+{% endblock %}

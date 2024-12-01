@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Estadísticas de Mantenimientos</title>
+</head>
+<body>
+    <h1>Estadísticas de Mantenimientos</h1>
+    <h2>Promedio de Mantenimientos por Vehículo</h2>
+    <p>{{ promedio_mantenimientos|default:"No disponible" }}</p>
+    <h2>Número de Mantenimientos por Vehículo</h2>
+    <ul>
+        {% for vehiculo in vehiculos %}
+            <li>{{ vehiculo.nombre }}: {{ vehiculo.num_mantenimientos }} mantenimientos</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Vehículos con Historial</title>
+</head>
+<body>
+    <h1>Vehículos y su Historial de Mantenimientos</h1>
+    <ul>
+        {% for vehiculo in vehiculos %}
+            <li>
+                <strong>{{ vehiculo.nombre }}</strong> ({{ vehiculo.tipo }}, {{ vehiculo.año }})
+                <ul>
+                    {% for mantenimiento in vehiculo.mantenimientos.all %}
+                        <li>{{ mantenimiento.fecha }} - {{ mantenimiento.observaciones }}</li>
+                    {% endfor %}
+                </ul>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
