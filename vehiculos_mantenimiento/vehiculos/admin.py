@@ -16,6 +16,14 @@ class MantenimientoAdmin(admin.ModelAdmin):
     list_display = ('vehiculo', 'fecha', 'observaciones')
     list_filter = ('fecha',)
 
+    def miniatura_vista(self, obj):
+        if obj.miniatura:
+            return format_html('<img src="{}" style="width:50px; height:50px;">', obj.miniatura.url)
+        return "No disponible"
+    miniatura_vista.short_desvription = "Miniatura"
+
+
+
 
 # Register your models here.
 # admin.site.register(Vehiculo)
